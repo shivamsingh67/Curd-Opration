@@ -2,7 +2,7 @@ from django.shortcuts import redirect, render
 from todo.models import Employees
 
 
-def INDEX(request):
+def index(request):
     emp = Employees.objects.all()
     context = {
         'emp': emp,
@@ -10,7 +10,7 @@ def INDEX(request):
     return render(request, 'index.html', context)
 
 
-def ADD(request):
+def add(request):
     if request.method == "POST":
         name = request.POST.get('name'),
         email = request.POST.get('email'),
@@ -28,7 +28,7 @@ def ADD(request):
     return render(request, 'index.html')
 
 
-def Edit(request):
+def edit(request):
     emp = Employees.objects.all()
     context = {
         'emp': emp,
